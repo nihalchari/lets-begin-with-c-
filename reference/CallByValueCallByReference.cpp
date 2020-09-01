@@ -8,7 +8,7 @@ int main(void)
     ///@note way of initialization in c++
     int a(5);
 
-     int b(5);
+    int b(5);
 
     std::cout << "&a =" << &a << std ::endl;
     increment(a,b);
@@ -23,7 +23,6 @@ void increment( int &x, int y)
     ++x;
     ++y;
 }
-
 
 
 

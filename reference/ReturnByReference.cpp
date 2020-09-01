@@ -18,10 +18,10 @@ int main(void)
 
     ///@note some strange behaviour
     // returnByRef(a) = z;
-    // std::cout << "a= " << a <<  std::endl;       //20
+    // std::cout << "a= " << a <<std::endl;       //20
 
-    // riskReturnByRef(a)=55;
-    // std::cout << "a= " << a <<  std::endl;
+    riskReturnByRef(a);
+    std::cout << "a= " << a <<  std::endl;
 
     return 0;
 }
@@ -35,13 +35,14 @@ int & returnByRef(int &x)
 }
 
 
-///@note ou should return a reference to an existing object that isn't going away immediately, 
+///@note should return a reference to an existing object that isn't going away immediately, 
 ///and where you don't intend any transfer of ownership.
 
-// int & riskReturnByRef(int &z)
-// {
-//     auto t = z;
-//     ++t;
-//     ///@note should not return reference to local var
-//     return t;
-// }
+int & riskReturnByRef(int &z)
+{
+    auto t = z;
+    ++t;
+
+    ///@note should not return reference to local variable
+    return t;
+}

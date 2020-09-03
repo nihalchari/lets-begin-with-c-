@@ -9,14 +9,11 @@ using namespace std;
 int main(void)
 {
     int i=2020;
-    // int q=2021;
-
-    int *ptr = &i;
+    
     int &j=i;
-    // j = q;
-
+    auto &g =i;
+    
     ++j;
-    *++ptr;
 
     std::cout << "i= " << i << "    j= " << j << std::endl;
     std::cout << "&i= " << &i << "\n&j= " << &j << std::endl;

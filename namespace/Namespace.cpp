@@ -1,20 +1,18 @@
 #include "cstdio"
 #include<iostream>
 
-
 ///@brief
-/// no namespace inside function
+/// no namespace inside function/ class
 /// main() should be global namespace always
 
 
 ///@note programm scope
 int i = 10;
 
-
 ///@note namespace scope
 namespace name1
 {
-    int i =2020;
+    int i1 =2020;
     
     namespace name11
     {
@@ -31,8 +29,12 @@ namespace name2
 
 int main()
 {
-    using namespace name2;
 
+    ///@note when you use "using namespace", and try to acces correponding member directly without explicitly
+    /// mentioning namespace at the point of access, make sure that no other identifier having same name is visible in scope where 
+    /// you have included "using namespace" clause
+    using namespace name2;
+    
     ///@note this will access global value
     printf("::i = %d\n", ::i);  
 
@@ -42,8 +44,6 @@ int main()
     ///@note since we have used "using namespace name2"
     printf("name2::i2 = %d\n", i2); 
     
-
-
     {
         ///block scope
         int i = 50;  
@@ -52,8 +52,6 @@ int main()
         printf("::i = %d\n", ::i);
         // printf("i = %d\n", i);  
       
-    }
-
-    
+    }    
     return 0;
 }

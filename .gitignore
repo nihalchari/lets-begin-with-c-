@@ -1,5 +1,5 @@
-*.o
 *.swp
-*a.out
-.vscode
 settings.json
+**/a.out
+/build*/
+.vscode

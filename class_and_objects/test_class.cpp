@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-class TestCalss
+class Complex
 {
     ///@note access specifier can be public or private or protected
     /// for class by default members are private, for structure by default is public
@@ -10,6 +10,7 @@ class TestCalss
     //data members or fields or attributes
     int id;
     char name[20];
+  
 
     //member functions or methods or behaviours
     void getData()
@@ -35,7 +36,7 @@ class EmptyClass
 int main()
 {
     /// object or instance
-    TestCalss testObj;
+    Complex testObj;
 
     /// size of object will be size of data members of class
     cout << "size testClass obj: " << sizeof(testObj) << endl;

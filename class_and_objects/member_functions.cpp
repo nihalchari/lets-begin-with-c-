@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-class TestCalss
+class Complex
 {
     private:
     int x;
@@ -22,7 +22,7 @@ class TestCalss
 
 int main()
 {
-    TestCalss testObj;
+    Complex testObj;
     int a=10, b=20;
 
     testObj.setData(a,b);

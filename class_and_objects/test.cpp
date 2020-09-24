@@ -1,29 +1,40 @@
 #include <stdio.h>
 
-struct str
+class str
 {
+    public:
+    //data members
     int id;
     char name[20];
+
+    //member functions
+    void getData()
+    {
+        printf("id : %d\n", id);
+        printf("name :%s \n", name);
+    }
+
+    //this *
+    void setData()
+    {
+        printf("Enter name\n");
+        scanf("%[^\n]s", this->name);
+        printf("enter id\n");
+        scanf("%d", this->id);
+    }
+
 };
-
-void acceptRecords(str *s)
-{
-    printf("Enter name :    ");
-    scanf("%[^\n]s", s->name);
-    printf("Enter id :  ");
-    scanf("%d", &s->id);
-}
-
-void printRecords(str *s)
-{
-    printf("Name    : %s\n", s->name);
-    printf("Id      : %d\n", s->id);
-}
 
 int main()
 {
+    //object or instance
     str s;
-    acceptRecords(&s);
-    printRecords(&s);
-    return 0;
+    str s1;
+    printf("%ld\n",sizeof(s));
+    s.setData();
+    s1.setData();
+    s.getData();
+
+    
 }
+

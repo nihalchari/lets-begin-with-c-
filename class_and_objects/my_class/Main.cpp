@@ -1,11 +1,11 @@
-#include "MyClass.hpp"
+#include "test_class.hpp"
 
 using namespace testspace;
 int main()
 {
     TestClass testObj;
-    testObj.setparam();
-    testObj.getparam();   
+    testObj.setParam();
+    testObj.getParam();   
 
     return 0;
 }

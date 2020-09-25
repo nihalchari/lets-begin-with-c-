@@ -12,12 +12,6 @@ using namespace std;
 
 class Complex
 {
-    private:   
-     int real;
-     int img;
-
-    ///TestClass * const this
-   
     public:
     void getAddress()
     {
@@ -26,6 +20,7 @@ class Complex
 
     void initComplex(int _real, int _img)
     {
+        ///TestClass * const this
         this->img = _img;
         real=_real;   
     }
@@ -39,11 +34,24 @@ class Complex
      Complex sum(Complex other)
      {
          Complex temp;
-         temp.img = this->img+other.img;
-         temp.real = this->real+other.real;
+         temp.img = this->img + other.img;
+         temp.real = this->real + other.real;
          return temp;
      }
 
+
+    ///@note not reccomended, only for demo, use other overload of sum
+        Complex sum(const Complex& lhs, const Complex& rhs)
+     {
+         Complex temp;
+         temp.img = lhs.img + rhs.img;
+         temp.real = lhs.real + rhs.real;
+         return temp;
+     }
+
+    private:   
+    int real;
+    int img;
 };
 
 int main()
@@ -69,6 +77,10 @@ int main()
 
     ///@note not possible as real and img both are private
     // Complex C.real = testObj1.real + testObj2.real;    //30, 300
+
+    ///@note not reccomended, only for demo, use other overload of sum
+    Complex res1 = testObj1.sum(testObj1,testObj2);
+    res1.printComplex();
 
     return 0;
 }

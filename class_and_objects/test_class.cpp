@@ -5,18 +5,17 @@ class Complex
 {
     ///@note access specifier can be public or private or protected
     /// for class by default members are private, for structure by default is public
+    
     public:
-
     //data members or fields or attributes
     int id;
     char name[20];
   
-
     //member functions or methods or behaviours
     void getData()
     {
-        cout << "id :" << id << endl; 
-        cout << "name :" << name << endl;
+            cout << "id :" << id << endl; 
+            cout << "name :" << name << endl;
     }
 
     void setData()
@@ -26,6 +25,14 @@ class Complex
         cout << "Enter name" << endl;
         cin >> name;
 
+    }
+
+    private:
+    bool validateData()
+    {
+        ///logic for data validation
+        cout << "Validating data...." << endl;
+        return true;
     }
 };
 

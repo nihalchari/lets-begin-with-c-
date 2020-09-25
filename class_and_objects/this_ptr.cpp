@@ -17,24 +17,23 @@ class Complex
      int real;
      int img;
 
-    //TestClass * const this
+    ///TestClass * const this
     void getAddress()
     {
        std::cout <<   "inside member function    :" << this << endl; 
     }
 
-    void initComplex(int _real, int _img)
-    {
-        int x;
-        real=_real;
-        this->img = _img;
-    }
+    // void initComplex(int _real, int _img)
+    // {
+    //     this->img = _img;
+    //     real=_real;   
+    // }
 
-    void printComplex()
-    {
-        cout <<"this->real :" << this->real << endl;
-        cout <<"img       :" << img << endl;
-    }
+    // void printComplex()
+    // {
+    //     cout <<"this->real :" << this->real << endl;
+    //     cout <<"img       :" << img << endl;
+    // }
 };
 
 int main()
@@ -42,9 +41,9 @@ int main()
     Complex testObj1;
     Complex testObj2;
 
-    // cout << "for testObj1" << endl;
-    // std::cout << "inside main               :" << &testObj1 << endl;
-    // testObj1.getAddress();
+    cout << "for testObj1" << endl;
+    std::cout << "inside main               :" << &testObj1 << endl;
+    testObj1.getAddress();
     // cout << "\n\nfor testObj1" <<endl;
     // std::cout << "inside main               :" << &testObj2 << endl;
     // testObj2.getAddress();

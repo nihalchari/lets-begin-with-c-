@@ -1,19 +1,21 @@
 #include "test_class.hpp"
 #include <iostream>
 #include<string>
-  
+
 namespace testspace
 {
+    // using namespace testspace;
     using namespace std;
 
     void TestClass::setParam()
     {
+        
         cout << "Enter name: " << endl;
         // cin >> name;
         cout << "Enter id: " << endl;
-        cin >> id;
+        cin >> m_id;
         cout << "Enter height: " << endl;
-        cin >> ht;
+        cin >> m_height;
     }
 
     void TestClass::getParam()
@@ -21,8 +23,8 @@ namespace testspace
         if(validateData())
         {
             // cout << "Name   : "<< name << endl;
-            cout << "Id     : "<< id << endl;
-            cout << "Height : " << ht << endl;
+            cout << "Id     : "<< m_id << endl;
+            cout << "Height : " << m_height << endl;
         }
         else
         {
@@ -37,8 +39,8 @@ namespace testspace
         cout << "Validating data...." << endl;
         return true;
     }
-    
-}
+}    
+
 
 
 

@@ -72,7 +72,6 @@ int main()
     testObj1.printComplex();
 
     Complex res = testObj1.sum(testObj2);
-
     res.printComplex();
 
     ///@note not possible as real and img both are private

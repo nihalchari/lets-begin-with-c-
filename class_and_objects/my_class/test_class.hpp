@@ -14,11 +14,14 @@ namespace testspace
             private:
             bool validateData();
         
-            private:
-            int id;
-            float ht;
-    };
+            public:
+            static int s_data;
 
+            private:
+            int m_id;
+            // name;
+            float m_height;
+    };
 }// end of testnamespace
 
 #endif

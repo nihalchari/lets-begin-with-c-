@@ -3,12 +3,7 @@ using namespace std;
 
 class Complex
 {
-    private:   
-     int real;
-     int img;
-   
     public:
-
     void initComplex(int _real, int _img)
     {
         this->img = _img;
@@ -21,20 +16,23 @@ class Complex
         cout <<"img       :" << img << endl;
     }
 
-
     int getImg()
     {
         return img;
     }
 
-    int getReal()
+    int Complex::getReal()
     {
         return real;
     }
 
 
-
+    private:   
+    int real;
+    int img;
 };
+
+
 
 
 Complex sum(Complex lhs, Complex rhs)
@@ -58,7 +56,7 @@ int main()
     testObj2.initComplex(20,200);
 
     Complex res = sum(testObj1, testObj2);
-
     res.printComplex();
+    
     return 0;
 }

@@ -1,8 +1,10 @@
 #ifndef MY_CLASS_HPP
 #define MY_CLASS_HPP
 
-// #include<string>
+#include<string>
+using namespace std;
 
+///@brief brief info about class testclass
 namespace testspace
 {
     class TestClass
@@ -15,13 +17,17 @@ namespace testspace
             bool validateData();
         
             public:
-            static int s_data;
+            static int s_dataMax;
 
             private:
             int m_id;
-            // name;
+            string name;
             float m_height;
-    };
+
+    };// end of TestClass 
+
 }// end of testnamespace
 
 #endif
+
+

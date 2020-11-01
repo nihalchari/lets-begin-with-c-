@@ -9,47 +9,57 @@ class TestClass
 {
     public:
     ///@note initialized using ctor initializer list
-    TestClass():iNum(15),fNum(22.5f)
+    TestClass():m_iNum(15),m_fNum(22.5f)
     {   
-    cout << "TestClass ctor"<<endl;
+    cout << "TestClass ctor parameterless"<<endl;
     };
 
     TestClass(int val)
-    {   iNum=val;
+    {   m_iNum=val;
+        m_fNum=100.1f;
         cout << "TestClass ctor with param int"<<endl;
     };
 
     TestClass(float val)
-    {   fNum=val;
-        iNum=100;
+    {   m_fNum=val;
+        m_iNum=100;
         cout << "TestClass ctor with param float"<<endl;
     };
     
     ///@note initialized using ctor initializer list
-    TestClass(float fval, int ival):iNum(ival),fNum(fval)
+    TestClass(float fval, int ival):m_iNum(ival),m_fNum(fval)
     {  
         cout << "TestClass ctor with param float and int"<<endl;
     };
 
 
-    int iNum;
-    float fNum;
+    int m_iNum;
+    float m_fNum;
 };
 
 
 
 int main()
 {    
-    TestClass obj4{222.2f, 888};
+    ///@todo y () is not allowed??
     TestClass obj1{};
+    cout << obj1.m_iNum << endl;
+    cout << obj1.m_fNum << endl;
+
     TestClass obj2{5};
+    cout << obj2.m_iNum << endl;
+    cout << obj2.m_fNum << endl;
+
     TestClass obj3{5.6f};
-    cout << obj1.iNum << endl;
-    cout << obj1.fNum << endl;
-    cout << obj2.iNum << endl;
-    cout << obj3.fNum << endl;
-    cout << obj3.iNum << endl;
-    cout << obj4.fNum << endl;
-    cout << obj4.iNum << endl;
+    cout << obj3.m_fNum << endl;
+    cout << obj3.m_iNum << endl;
+    
+
+    TestClass obj4{222.2f, 888};
+    cout << obj4.m_fNum << endl;
+    cout << obj4.m_iNum << endl;
+
+    
+    
     return 0;
 }

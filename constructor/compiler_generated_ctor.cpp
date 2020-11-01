@@ -2,14 +2,16 @@
 using namespace std;
 
 
-///@brief constructor(ctor) is a special member function with same name as of class and not return type
+///@brief if user has not provided ctor, then compiler generated default ctor will be called
+///if user provide ctor, compiler will not generate any ctor;
+
 
 
 class TestClass
 {
     public:
-    int iNum;
-    float fNum;
+    int m_iNum;
+    float m_fNum;
 
 };
 
@@ -19,28 +21,28 @@ int main()
     // TestClass testObj();
     
     TestClass testObj{};    //initialized to 0
-    cout << testObj.iNum << endl;
-    cout << testObj.fNum << endl;
+    cout << testObj.m_iNum << endl;
+    cout << testObj.m_fNum << endl;
 
     TestClass testObj1;     //uninitialized
-    cout << testObj1.iNum << endl;
-    cout << testObj1.fNum << endl;
+    cout << testObj1.m_iNum << endl;
+    cout << testObj1.m_fNum << endl;
 
     TestClass testObj2{5};
     ///@note @todo instantiating using () brackets in case of compiler generated ctor is not allowed.. y?
     // TestClass testObj5(55);
-    cout << testObj2.iNum << endl;
-    cout << testObj2.fNum << endl;
+    cout << testObj2.m_iNum << endl;
+    cout << testObj2.m_fNum << endl;
 
 
-    // TestClass testObj4{6.9f};
-    // cout << testObj4.iNum << endl;
-    // cout << testObj4.fNum << endl;
+    // TestClass testObj4{6.5f};
+    // cout << testObj4.m_iNum << endl;
+    // cout << testObj4.m_fNum << endl;
 
 
-    TestClass testObj3{6, 9.5f};
-    cout << testObj3.iNum << endl;
-    cout << testObj3.fNum << endl;
+    TestClass testObj3{7, 9.5f};
+    cout << testObj3.m_iNum << endl;
+    cout << testObj3.m_fNum << endl;
 
     return 0;
 }

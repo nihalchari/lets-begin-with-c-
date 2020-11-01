@@ -9,9 +9,8 @@ namespace testspace
 
     void TestClass::setParam()
     {
-        
         cout << "Enter name: " << endl;
-        // cin >> name;
+        cin >> name;
         cout << "Enter id: " << endl;
         cin >> m_id;
         cout << "Enter height: " << endl;
@@ -22,7 +21,7 @@ namespace testspace
     {
         if(validateData())
         {
-            // cout << "Name   : "<< name << endl;
+            cout << "Name   : "<< name << endl;
             cout << "Id     : "<< m_id << endl;
             cout << "Height : " << m_height << endl;
         }

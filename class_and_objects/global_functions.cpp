@@ -21,10 +21,7 @@ class Complex
         return img;
     }
 
-    int Complex::getReal()
-    {
-        return real;
-    }
+    int getReal();
 
 
     private:   
@@ -32,7 +29,10 @@ class Complex
     int img;
 };
 
-
+     int Complex::getReal()
+    {
+        return real;
+    }
 
 
 Complex sum(Complex lhs, Complex rhs)

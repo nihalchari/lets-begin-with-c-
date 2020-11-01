@@ -2,7 +2,7 @@
 when object of class is created, constructor will be invoked automatically
 initialization of data members is done inside ctor
 if user has not provided ctor, then compiler generated default ctor will be called
-if user provide ctor, compiler will not generate ctor;
+if user provide ctor, compiler will not generate any ctor;
 
 
 categories of constructors

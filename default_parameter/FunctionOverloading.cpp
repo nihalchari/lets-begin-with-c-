@@ -1,6 +1,15 @@
 #include<iostream>
 using namespace std;
 
+///@brief functions can be overloaded depending upon
+/// 1. Type of arguments
+/// 2. Number of arguments
+/// 3. Order of arguments
+
+///@note function cannot be overloaded depending upon return type.
+
+
+
 int add(int a, int b)
 {
     return a+b;
@@ -26,6 +35,12 @@ float add(int a, float b)
 {
     return float(a+b);
 }
+
+float add(float a, int b)
+{
+    return float(a+b);
+}
+
 
 
 int main()

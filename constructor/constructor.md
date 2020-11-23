@@ -21,7 +21,7 @@ categories of constructors
         
 
 Prefer {} List initialization over alternatives unless you have a strong reason not to.
-For default initialization I always use curly braces {}.
+For default initialization  always use curly braces {}.
 
 List initialization does not allow narrowing
     An integer cannot be converted to another integer that cannot hold its value. For example, char to int is allowed, but not int to char.

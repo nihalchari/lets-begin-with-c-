@@ -54,5 +54,6 @@
         "random": "cpp",
         "string": "cpp",
         "string_view": "cpp"
-    }
+    },
+    "editor.formatOnSave": true
 }

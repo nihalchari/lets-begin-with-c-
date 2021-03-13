@@ -7,17 +7,18 @@ public:
   test(int n1 = 0, int n2 = 0) {
     this->num1 = n1;
     this->num2 = n2;
-    // this->num3 = 333; // do not initialize here, as staic is class variable
+    test::num3 = 333; // do not initialize here, as staic is class variable
   }
 
+private:
   int num1;        // instance var, gets space once per instance/object
   int num2;        // instance var, gets space once per instance/object
   static int num3; // class level var, gets space once per class
-  const static int s_constNum; // class level var, gets space once per class
+  static const int s_constNum; // class level var, gets space once per class
 };
 
-int test::num3; // mandatory to define static member in global space(better to
-                // inilialize else default initalized to 0)
+int test::num3; // mandatory to define static member in global space(better
+// to inilialize else default initalized to 0)
 const int test::s_constNum = 100; // mandatory to define + initialize
 ///@note above statements only meant for definition, if declared as private,
 /// then can be accessed only inside class
@@ -31,8 +32,8 @@ int main() {
   // cout << sizeof(t3) << endl;
 
   ///@note can be accessed directly as declared as public inside class
-  cout << test::num3 << endl;
-  cout << test::s_constNum << endl;
+  // cout << test::num3 << endl;
+  // cout << test::s_constNum << endl;
   fun();
   fun();
 }

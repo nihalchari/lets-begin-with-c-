@@ -1,0 +1,193 @@
+m/c level language : 101000101 : 1st generation
+Assembly language : specific to architecture 2nd generation
+High level language : C , C++,          3rd generation
+
+
+c : procedure Oriented
+c++ : Object Oriented
+
+OOPS : Object Oriented Programming Structure/System
+
+Four MAJOR pillars
+1. abstraction      -> to achieve simplicity
+2. encapsulation    -> data hiding (hides details of implementation from object)
+3. Modularity       -> to reduce dependency (loose coupling)
+4. Hierarchy        -> to achieve reusability
+
+Three MINOR pillars
+1. Typing/ polymorphism     -> to reduce maintenance of the code
+2. Concurrency              -> execute multiple task simultaneousy, max cpu utilization
+3. Persistance              -> maintain state of object on HDD
+
+-------------------------------------------------------------------------
+ABSTRACTION
+Getting essential info from code/system/object wrt to user/viewer
+focuses on outer behaviour of object
+
+eg. car <- mechanique, driver, passenger
+code <- abstraction.cpp
+-------------------------------------------------------------------------------
+ENCAPSULATION
+Implementation to achieve abstraction is encapsulation.
+Data hiding
+Binding of data and code together.
+Describes internal behaviour of object
+
+Using encapsulation
+- we can achieve abstraction
+- we can achieve data hiding
+
+Data hiding / Data encapsulation
+process of declaring data members private,
+using data hiding -> data security -> using member functions -> controlled access.
+---------------------------------------------------------------------------------------
+
+MODULARITY
+Process of developing complex  system using small modules.
+To minimize dependencies
+can be achieved with help of libraries.
+
+-----------------------------------------------------------------------------------------
+
+HIERARCHY 
+Level or Order of abstraction is Hierarchy
+to achieve reusability
+
+Four type
+1. Has-a        -> Association
+2. Is-a         -> Inheritance
+3. Use-a        -> Dependency
+4. Creates-a    -> Instantiation
+
+----------------------------------------------------------------------------------------
+
+TYPING / POLYMORPHISM
+Poly means many
+morphism means form
+eg. smartphone screen (i/p & o/p)
+
+Its a ability of object to take multiple forms 
+reduces maintenance
+
+Types of polymorphism
+1. Compile time / Static binding / Early binding / weak typing / false polymorphism
+achieved by 1.  function overloading
+            2.  operator overloading +
+            3.  Template ???? dont know
+
+2. Runtime / Dynamic binding / Late binding / strong typing / true polymorphism
+achieved by -> function overriding
+
+------------------------------------------------------------------------------------------
+
+CONCURRENCY
+In context of OS it is multi-tasking
+C++ -> can be achived by using std::threads C++11  prior -> posix library
+to utilize CPU efficiently
+
+---------------------------------------------------------------------------------
+
+PERSISTANCE 
+process of storing/maitaining state of object on secondary storage
+after process finishes/terminates state of objects are lost.
+stored in files or data base
+
+    obj - x, y
+
+    fd=open(path_to_the_file, RDWR)
+
+    write(fd,x,4);
+
+---------------------------------------------------------------------------------------
+
+ASSOCIATION
+
+eg. of has-a
+Room has-a wall, room has-a chair, Human has-a heart, Department has-a faculty
+
+If obj is part/component of another object then it is Association.
+Association -> loose coupling can be achived -> prefered over Inheritance(tight coupling)
+
+class Engine{};
+class Gear{};
+
+class Car
+{
+    Engine eng;         //tight coupling
+    Gear g;             //tight coupling
+};
+
+class Bike
+{
+    Engine Eng;         //tight coupling
+    Gear *ptrGear =null      //loose coupling
+};
+
+Association -> generic
+two specific/special form
+1. Composition
+2. Aggregation
+
+
+Composition
+If depedent object cannot exist without dependency object. -> tight coupling
+
+eg. Human has-a Heart
+Human -> depedent object
+Heart -> dependency object
+
+eg. Romm has-a wall
+
+Room -> depedent object
+wall -> dependency object
+
+Aggregation
+If dependency object can exist without depedent object. -> loose coupling
+
+eg. Romm has-a chair
+
+Room -> depedent object
+chair -> dependency object
+
+
+-----------------------------------------------------------------------------------------------
+
+Inheritance:
+- accessing properties and behaviour of base class into derived class.
+- If 'is-a' relationship exist between two types -> use inheritance.
+- also called as generalization
+
+eg. Dog is-a Animal
+    Employee is-a Person
+    Manager is-a Employee
+
+
+    class Date{};
+    class Person{};
+
+    class Employee : public Person          -> is-a inheritance         Employee is-a Person
+    {
+        Date joinDate;                      -> has-a association        Employee has-a joinDate
+    };
+
+    key points to understand in inheritance
+    - what is inherited
+    - what is accessed
+    -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

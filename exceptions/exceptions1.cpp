@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -21,7 +22,8 @@ template <typename T> T calulate(T num1, T num2) {
     throw string("-ve number");
 
   if (num2 == 0)
-    throw Arithmatic("devide by 0");
+    // throw Arithmatic("devide by 0");
+    throw 2.2f;
 
   auto res = num1 / num2;
 }
@@ -48,8 +50,12 @@ int main() {
 
   catch (Arithmatic ex) {
     cout << "Arithmatic Ex :" << ex.getMessage() << endl;
+  } catch (...) {
+    cout << "generic catch \n";
   }
 
+  delete ptr;
+  close(fd);
   cout << "file closed\n";
   cout << "memory freed\n";
 

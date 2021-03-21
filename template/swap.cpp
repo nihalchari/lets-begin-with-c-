@@ -15,15 +15,18 @@ int main(void) {
   int a = 1;
   int b = 2;
   Swap<int>(a, b);
-  cout << "a = " << a << "  b = " << b << endl;
+  // cout << "a = " << a << "  b = " << b << endl;
 
   char ch1 = 'A';
   char ch2 = 'B';
-
-  // fun<>(a, ch1);
-
   Swap<>(ch1, ch2);
-  cout << "ch1 = " << ch1 << "  ch2 = " << ch2 << endl;
+  // cout << "ch1 = " << ch1 << "  ch2 = " << ch2 << endl;
+
+  float f1 = 10.1;
+  float f2 = 20.2;
+
+  Swap<float>(f1, f2);
+  // cout << "f1 = " << f1 << "  f2 = " << f2 << endl;
 
   return 0;
 }

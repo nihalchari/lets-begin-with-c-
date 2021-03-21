@@ -178,6 +178,26 @@ eg. Dog is-a Animal
 
 
 
+Single Inheritance : 
+Employee is-a Person.
+
+
+Multiple Inheritance
+Employee is-a Person.
+Employee is-a asset;
+
+Hierarchical Inheritance
+Employee is-a Person
+Student is-a Person
+
+MultiLevel Inheritance
+Single inheritance having multiple level
+Employee is-a Person
+Manager is-a Employee
+
+
+
+
 
 
 

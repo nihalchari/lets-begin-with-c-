@@ -1,36 +1,39 @@
 #include <iostream>
 using namespace std;
 
-class Base {
+class Base
+{
 
 public:
   Base(int n1, int n2) : num1(n1), num2(n2) {}
-  void displayBaseRecord() { cout << num1 << endl << num2 << endl; }
+  void displayBaseRecord() { cout << num1 << endl
+                                  << num2 << endl; }
 
-private:
   int num1;
   int num2;
 };
 
-class Derived : public Base {
+class Derived : public Base
+{
 public:
   Derived(int n1, int n2, int n3) : Base(n1, n2), num3(n3) {}
-  void displayDerivedRecord() {
+  void displayDerivedRecord()
+  {
     this->displayBaseRecord();
     cout << num3 << endl;
   }
 
 private:
   int num3;
-  ;
 };
 
-int main() {
+int main()
+{
   Base b(10, 20);
-  //   b.displayBaseRecord();
+  // b.displayBaseRecord();
 
   Derived d(100, 200, 300);
-  //   d.displayDerivedRecord();
+  // d.displayDerivedRecord();
 
   b = d;
   b.displayBaseRecord();

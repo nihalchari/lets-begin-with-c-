@@ -1,0 +1,53 @@
+
+
+
+class Shape
+{
+    public:
+    float getArea()
+    {
+        return this-> area;
+    }
+
+    void fun() =0;      //pure virtual
+
+    protected:
+    float area;
+}
+
+
+class Circle : public Shape
+{
+    private:
+    void calArea()
+    {
+        this->area = 3.14* this->radius * this-> radius;
+    }
+
+    void fun()
+    {
+        
+    }
+
+    private:
+    float radius;
+
+
+};
+
+
+class Triangle : public Shape
+{
+    private:
+    void calArea()
+    {
+        this->area = 0.5 * this->base * this->height;
+    }
+
+    private:
+    float base;
+    float height;
+};
+
+
+

@@ -1,45 +1,118 @@
 #include <iostream>
 using namespace std;
 
-class Base {
-
+class Product
+{
 public:
-  Base(int n1, int n2) : num1(n1), num2(n2) {}
-  void printRecord() { cout << num1 << endl << num2 << endl; }
-  void acceptRecords() {
-    cout << "enter num1\n";
-    cin >> num1;
-    cout << "enter num2\n";
-    cin >> num2;
+  virtual void acceptRecord()
+  {
+    cout << "Name : ";
+    cin >> name;
+    cout << "Price  : ";
+    cin >> price;
+  }
+
+  virtual void printRecord() const
+  {
+    cout << this->name << endl;
+    cout << this->price << endl;
   }
 
 private:
-  int num1;
-  int num2;
+  string name;
+  int price;
 };
 
-class Derived : public Base {
+class Book : public Product
+{
 public:
-  Derived(int n1, int n2, int n3) : Base(n1, n2), num3(n3) {}
-  void acceptRecords() {
-    Base::acceptRecords();
-    cout << "enter num3\n";
-    cin >> num3;
+  void acceptRecord()
+  {
+    Product::acceptRecord();
+    cout << "pages  : ";
+    cin >> pages;
   }
 
-  void printRecord() {
-    Base::printRecord();
-    cout << num3 << endl;
+  void printRecord() const
+  {
+    Product::printRecord();
+    cout << this->pages << endl;
   }
 
 private:
-  int num3;
+  int pages;
 };
 
-int main() {
-  Base *basePtr = new Derived{100, 200, 300};
+class Tape : public Product
+{
+public:
+  void acceptRecord()
+  {
+    Product::acceptRecord();
+    cout << "playTime  : ";
+    cin >> playTime;
+  }
 
-  basePtr->acceptRecords();
-  basePtr->printRecord();
+  void printRecord() const
+  {
+    Product::printRecord();
+    cout << this->playTime << endl;
+  }
+
+private:
+  int playTime;
+};
+
+int main()
+{
+  int choice = 1;
+
+  while (choice)
+  {
+    cout << "Enter Choice\n";
+    cout << "1. Book\n2. Tape\n0.Exit\n";
+
+    cin >> choice;
+
+    // Book *bptr = nullptr;
+    // Tape *tptr = nullptr;
+    Product *ptr = nullptr;
+
+    switch (choice)
+    {
+    case 1:
+      ptr = new Book{};
+      break;
+    case 2:
+      ptr = new Tape{};
+      break;
+    }
+    if (ptr != nullptr)
+    {
+      ptr->acceptRecord();
+      ptr->printRecord();
+    }
+  }
+}
+
+int main1()
+{
+  Product *ptr = new Tape{};
+  ptr->acceptRecord();
+  ptr->printRecord();
+
+  Tape *tptr = (Tape *)ptr;
+  tptr->acceptRecord();
+  tptr->printRecord();
+
   return 0;
+}
+
+int main2()
+{
+  // Book *ptr = new Book{};
+
+  Tape *ptr = new Tape{};
+  ptr->acceptRecord();
+  ptr->printRecord();
 }

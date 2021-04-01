@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-class Base {
+class Base
+{
 public:
   int publicBase;
 
@@ -12,7 +13,8 @@ private:
   int privateBase;
 };
 
-class DirectDer : private Base {
+class DirectDer : public Base
+{
 public:
   int publicDirectDer;
 
@@ -23,7 +25,8 @@ private:
   int privateDirectDer;
 };
 
-class IndirectDer : private DirectDer {
+class IndirectDer : private DirectDer
+{
 public:
   int publicIndirectDer;
 

@@ -1,12 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class Base {
+class Base
+{
 
 public:
   Base() : publicData(1), protectedData(2), privateData(3) {}
 
-  void baseRecords() const {
+  void baseRecords() const
+  {
     cout << this->publicData << endl;
     cout << this->protectedData << endl;
     cout << this->privateData << endl;
@@ -22,26 +24,30 @@ private:
   int privateData;
 };
 
-class Derived : public Base {
+class Derived : public Base
+{
 public:
   Derived() : Base(){};
 
-  void derivedRecords() const {
+  void derivedRecords() const
+  {
     cout << this->publicData << endl;
     cout << this->protectedData << endl;
   }
 };
 
-int main() {
+int main()
+{
   Base b;
-  //   cout << sizeof(b) << endl;
+
+  // cout << sizeof(b) << endl;
   //   b.publicData = 5;
   //   b.baseRecords();
 
   Derived d;
-  //   cout << sizeof(d) << endl;
+  cout << sizeof(d) << endl;
   //   d.derivedRecords();
-  d.baseRecords();
+  // d.baseRecords();
 
   return 0;
 }

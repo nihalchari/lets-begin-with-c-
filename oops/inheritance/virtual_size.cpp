@@ -1,8 +1,13 @@
 #include <iostream>
 using namespace std;
 
-class VirtualClass
+class Test
 {
+public:
+    Test()
+    {
+        //vptr=vtable;
+    }
     virtual void fun1()
     {
     }
@@ -12,17 +17,14 @@ class VirtualClass
     }
 
 private:
-    //vptr = base addrerss of vtable
+    //vptr
     int n1;
     int n2;
 };
 
 int main()
 {
-
-    VirtualClass obj;
-
+    Test obj;
     cout << sizeof(obj) << endl;
-
     return 0;
 }

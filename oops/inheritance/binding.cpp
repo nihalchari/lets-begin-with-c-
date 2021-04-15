@@ -20,7 +20,7 @@ public:
         cout << "B::funB\n";
     }
 
-    virtual void virFunB()
+    void virFunB()
     {
         cout << "B::virFunB\n";
     }

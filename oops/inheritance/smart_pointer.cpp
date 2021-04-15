@@ -21,7 +21,6 @@ public:
 
 int main()
 {
-
     unique_ptr<Base> ptr1(new Base{1, 2});
     ptr1->showRecords();
 }

@@ -111,7 +111,6 @@ int main1()
 int main2()
 {
   // Book *ptr = new Book{};
-
   Tape *ptr = new Tape{};
   ptr->acceptRecord();
   ptr->printRecord();

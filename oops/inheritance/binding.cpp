@@ -3,6 +3,11 @@ using namespace std;
 class A
 {
 public:
+    A()
+    {
+        cout << "A ctor\n";
+    }
+
     void funA()
     {
         cout << "A::funA\n";
@@ -15,6 +20,10 @@ public:
 class B : public A
 {
 public:
+    B()
+    {
+        cout << "B ctor\n";
+    }
     void funB()
     {
         cout << "B::funB\n";
@@ -28,13 +37,30 @@ public:
     {
         cout << "B::funA\n";
     }
-    void virFunA()
+    virtual void virFunA() final
     {
         cout << "B::virFunA\n";
     }
 };
 
+class C : public B
+{
+public:
+    // virtual void virFunA() final
+    // {
+    //     cout << "B::virFunA\n";
+    // }
+};
+
 int main()
+{
+    A a;
+    B b;
+    b.funA();
+}
+
+#if 0
+int main4()
 {
     A *aptr = new B{}; // upcasting
     aptr->funA();      // early binding
@@ -80,3 +106,5 @@ int main1()
     // obj1.virFunA();
     // obj1.virFunB();
 }
+
+#endif

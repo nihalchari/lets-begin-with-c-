@@ -1,0 +1,274 @@
+Stl container
+https://www.geeksforgeeks.org/the-c-standard-template-library-stl/
+
+Naming conventions
+https://inside-docupedia.bosch.com/confluence/pages/viewpage.action?pageId=1189524461 
+
+
+https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes/blob/master/oop/object-oriented-programming-quiz.md
+
+
+
+
+
+
+
+
+
+
+
+smart pointer
+
+
+Unique Pointer
+unique_ptr<T>
+Points to an object of type T  on heap
+There can be only one unique_ptr<T> pointing to specific object on heap
+cannot be assigned or copied While creating vector, in range based for loop
+can be moved
+When pointer is destroyed what it points to is automatically destroyed
+
+make_unique<T>
+Function returns unique pointer of specified type
+
+
+get() method          
+returns pointer to the managed object
+
+reset() method
+sets pointer to NULL, and memory it points will be releases
+
+
+
+
+
+
+Shared pointer
+
+shared_ptr<T>
+points to an object of type T  on heap
+There can be multiple shared_ptr<T> pointing to same object on heap
+Establishes shared ownership relationship
+can be assigned or copied
+can be moved
+When the use count is zero, managed object on heap is destroyed
+
+Reference Counting
+Every time shared pointer object is instantiated and have it point or reference to the heap object reference counter will be incremented.
+This counter will reflect number of shared pointers referencing heap object
+Reference will be decremented when pointer goes out of scope
+When Reference count will become zero, means nothing is referencing to heap object then heap object can be safely destroyed
+This is having overhead in cyclic/circular design-> solution is weak pointer
+
+
+
+
+make_shared<T>
+Function returns shared pointer of specified type
+
+
+
+
+
+
+
+
+
+
+Provides a non-owing weak reference
+
+weak_ptr<T>
+
+Points to the object of type T on the heap
+Does not participate in owning relationship
+Always created from a shared_ptr
+Does not increment or decrement reference use count
+
+
+
+
+
+
+
+
+
+
+
+
+std::priority_queue
+#include<queue>
+
+STL adaptor container
+Allows insertion and removal of elements in order from front of container
+Elements are stored as vector by default
+Elements are inserted in priority order, so largest priority element will always be at front 
+No iterators are supported nor STL algorithms
+
+
+
+push()          inserts element in sorted manner
+pop()            removes top element(highest priority element , by default greatest value of element)
+top()             access top element without removing it
+
+
+
+
+
+
+ctor overview
+
+
+To customize how class members are initialized, or to invoke functions when an object of your class is created, define a constructor.
+ Has same name as the class and no return value.
+Can define as many overloaded constructors as needed,  compiler chooses which constructor to invoke based on the rules of overload
+Typically, constructors have public accessibility 
+But you can also declare a constructor as protected or private
+
+Constructors can optionally take a member init list,  which initializes class members prior to execution of the constructor body
+more efficient way to initialize class members
+const members and members of reference type must be initialized in the member initializer list.
+
+
+
+
+
+• Constructors may be declared as inline, explicit, friend or constexpr.
+• A constructor can initialize an object that has been declared as const, volatile or const volatile. The object becomes const after the constructor completes.
+
+
+
+Delegating constructor: calls constructor from otr constructors initialization list. Normally when u have too many overloaded constructors, basically reduces code duplication 
+
+Parameterized constructors : advantage over using overloaded constructors(not always) as we can declare only one constructor that accepts all parameters and initialize parameters to default in constructor declaration.
+
+
+
+Default Constructor
+
+A default constructor is a constructor which can be called with no arguments (either defined with an empty parameter list, or with default arguments provided for every parameter). 
+
+
+Default constructors typically have no parameters, but they can have parameters with default values
+ If no constructors are declared in a class, the compiler provides an implicit inline default constructor.
+
+
+You can prevent the compiler from generating an implicit default constructor by defining it as deleted:
+	Box() = delete;
+A compiler-generated default constructor can be defined as deleted if any class members are not default-constructible
+
+
+If any non-default constructors are declared, the compiler does not provide a default constructor
+If a class has no default constructor, an array of objects of that class cannot be constructed by using square-bracket syntax alone
+However, you can use a set of initializer lists to initialize an array of Box objects:
+
+
+Copy constructor and copy assignment operator
+
+Copy constructor is called when a new object is created from an existing object, as a copy of the existing object. And assignment operator is called when an already initialized object is assigned a new value from another existing object. 
+
+https://docs.microsoft.com/en-us/cpp/cpp/constructors-cpp?view=vs-2019
+
+If you do not declare a copy constructor, the compiler generates a member-wise copy constructor for you. If you do not declare a copy assignment operator, the compiler generates a member-wise copy assignment operator for you. Declaring a copy constructor does not suppress the compiler-generated copy assignment operator, nor vice versa. If you implement either one, we recommend that you also implement the other one so that the meaning of the code is clear.
+
+From <https://docs.microsoft.com/en-us/cpp/cpp/copy-constructors-and-copy-assignment-operators-cpp?view=vs-2019> 
+
+Sometimes copy constructor is not called due to something called copy elision which is a compiler optimization technique that eliminates unnecessary copy
+
+Return value optimization is also a compiler technique of not creating copy of return value
+
+
+
+
+
+Copy assignment operator
+
+A copy assignment operator of class T is a non-template non-static member function with the name operator= that takes exactly one parameter of type T, T&, const T&, volatile T&, or const volatile T&. For a type to be CopyAssignable, it must have a public copy assignment operator. 
+
+
+Syntax
+class_name & class_name :: operator= ( class_name )		
+class_name & class_name :: operator= ( const class_name & ) 	 	
+		
+Forcing a copy assignment operator to be generated by the compiler. 		
+class_name & class_name :: operator= ( const class_name & ) = default; 	 	(since C++11) 
+		
+		
+Avoiding implicit copy assignment. 		
+class_name & class_name :: operator= ( const class_name & ) = delete; 		(since C++11)
+
+They take a single argument of type class-name& unless the assignment operators in all base and member classes take arguments of type const class-name&. In this case, the class's generated assignment operator takes a const argument.
+
+When the argument type is not const, assignment from a const object generates an error. The reverse is not true: If a const value is assigned to a value that is not const, the assignment succeeds.
+
+
+
+
+
+
+
+
+Copy constructors
+A copy constructor of class T is a non-template constructor whose first parameter is T&‍, const T&‍, volatile T&‍, or const volatile T&‍, and either there are no other parameters, or the rest of the parameters all have default values. 
+
+Syntax
+
+Typical declaration of a copy constructor. 
+class_name ( const class_name & ) 	
+
+Forcing a copy constructor to be generated by the compiler. 	
+class_name ( const class_name & ) = default; 	
+	
+• Avoiding implicit generation of the copy constructor. 	
+class_name ( const class_name & ) = delete; 	
+
+
+
+The copy constructor is called whenever an object is initialized from another object of the same type .
+
+initialization: T a = b; or T a(b);, where b is of type T;
+
+Or
+
+function argument passing: f(a);, where a is of type T and f is void f(T t); 
+function return: return a; inside a function such as T f(), where a is of type T, which has no move constructor
+
+Make the type of the copy constructor's argument const class-name& whenever possible. This prevents the copy constructor from accidentally changing the object from which it is copying. It also enables copying from const objects.
+
+
+
+Compiler-generated copy constructors, like user-defined copy constructors, have a single argument of type "reference to class-name." An exception is when all base classes and member classes have copy constructors declared as taking a single argument of type const class-name&. In such a case, the compiler-generated copy constructor's argument is also const.
+When the argument type to the copy constructor is not const, initialization by copying a const object generates an error. The reverse is not true: If the argument is const, you can initialize by copying an object that is not const.
+
+
+
+
+
+
+
+
+
+Rvalue
+Technically, an rvalue is an unnamed value that exists only during the evaluation of an expression. For example, the following expression produces an rvalue:
+x+(y*z); // A C++ expression that produces a temporary 
+C++ creates a temporary (an rvalue) that stores the result of y*z, and then adds it to x. Conceptually, this rvalue evaporates by the time you reach the semicolon at the end of the full expression.
+
+
+
+
+
+
+
+
+
+Move constructor
+A move constructor enables the resources owned by an rvalue object to be moved into an lvalue without copying. 
+
+std::move()
+ doesn't actually move anything. It converts an expression from being an lvalue (such as a named variable) to being an xvalue. An xvalue tells the compiler:
+
+  You can plunder me, move anything I'm holding and use it elsewhere (since I'm going to be destroyed soon anyway)".
+
+
+
+The move constructor is used instead of the copy constructor, if the object has type "rvalue-reference" (Type &&).
+std::move() is a cast that produces an rvalue-reference to an object, to enable moving from it.

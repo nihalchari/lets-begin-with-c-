@@ -17,7 +17,8 @@ using namespace std;
 //   string message;
 // };
 
-int main() {
+int main()
+{
   auto fd = open("test.txt", O_CREAT, O_RDWR);
   std::cout << "enter nos\n";
   int num1{0};
@@ -26,11 +27,14 @@ int main() {
 
   cin >> num1 >> num2;
 
-  try {
+  try
+  {
     if (num2 == 0)
       throw 99;
     *res = num1 / num2;
-  } catch (int ex) {
+  }
+  catch (int ex)
+  {
     cout << "cought exception " << ex << endl;
   }
   // logic to write result in text.txt file
@@ -44,3 +48,10 @@ int main() {
 
   return 0;
 }
+
+/*
+C++ provides class hierarchy of exception classes
+Std::exception class is a base class
+All other exception classes are derived from it
+Std::exception class provides virtual function names "what", that returns C type string with description of exception that is occurred .
+*/

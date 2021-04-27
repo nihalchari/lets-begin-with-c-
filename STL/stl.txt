@@ -1,0 +1,190 @@
+Deque
+
+#include <deque>
+
+Acts as a double ended queue i.e. allows deletion and insertion at back and front efficiently (other than front and back is not that efficient)
+size is dynamic
+allows direct element access using subscript operator(no bounds check) and .at()(bounds check) method
+Elements are not stored in contiguous memory, can be virtualize deque as linked list of vectors
+Implemented as collection of memory blocks, blocks contain elements in contagious memory
+
+
+
+
+vector
+#include<vector>
+
+
+Elements are stored in contiguous memory as an array
+
+
+Direct element access : constant time
+Insertion and deletion at back : constant time
+Insertion and deletion other than back : linear time
+
+
+Vector declaration
+
+std::vector<int> vec1 {1,2,3,4,5};
+std::vector<int> vec2(10,100)   //vector of 10 elements initialized to 100, call overloaded constructor
+
+Also supports assignment via initializer list
+Vec2 = {10,20,30}; 
+
+
+
+Push vs emplace
+
+Push_back : object needs to be created first. push pushes object
+Emplace_back : expects parameter that would normally be passed into the class constructor
+
+Pushing on vector will normally create copy of objects, that can be avoided using emplace_back wherever possible
+
+
+
+vec1.swap(vec2)
+Type should be same, size can be different 
+
+
+
+
+Lists
+#include<list>
+
+sequence container
+stores elements in non-contiguous memory
+Do not provide direct access to elements, access via subscripts operator and .at() method is not available
+Very efficient in inserting and deleting element from anywhere in lists once element is found
+
+List acts a doubly linked list, so can traverse in either direction
+list has front() and back() method that returns references to 1st and last element respectively. 
+lists uses insert() and remove() methods to add and remove elements, push and pop can be used to add/remove at ends.
+Needs iterator to the element to be removed or insert before, done by using find method in linear time.
+
+
+Insert().
+
+Need to find element before whom u need to insert
+Use std::find method to search element, which returns iterator
+It element is found new element will be inserted in front of that iterator, else inserted at end
+
+forward_list
+#include<forward_list>
+
+Acts as a singly linked list, so can be traversed only in one direction
+Less overhead than list
+Does not support direct element access. That is no subscript operator no .at() method
+No concept of back, only front
+Reverse iterator not available
+size() method is not available
+back() method is not available, front() is available
+Only push_front(), pop_front() and emplace_front() is available.
+
+Since forward_list is singly linked list,
+elements are inserted after iterator and not before. Hence insert_after(), erase_after() and emplace_after are available, instead of insert() , erase().
+
+
+
+
+sets
+
+#include<set>
+Elements in set are ordered by key
+No duplicate elements are allowed (even if provided they will be discarded, no error will be thrown)
+Elements are automatically sorted
+All iterators are available for sets
+
+No concept of front and back
+Do not allow direct access to elements, so can't use subscript operator or .at() method 
+
+	
+Sets uses overloaded less then operator to determine if element exists in set
+
+Methods
+
+insert()
+Inserts the element in set at ordered position and returns the std::pair<iterator, bool>
+If value already exists returns the iterator to existed value
+bool determines success or failure
+
+erase()  : removes element from sets if present
+find()     : returns iterator if value is present
+count()    : returns 1 if element is present in set else returns 0
+clear()     :  deletes all elements in set
+empty()   : returns true if set is empty else returns false
+
+
+Associative containers
+Allows fast retrievals using keys
+Implemented as a balanced binary tree
+Operations are very efficient
+
+
+
+
+Map
+Associative containers
+Allows fast retrievals using keys
+Implemented as a balanced binary tree
+Operations are very efficient
+
+
+Elements in maps are stored as key, Value pairs(std::pair)
+Ordered by key
+No duplicate elements(keys are unique)
+Direct element access using keys
+No concept of front or back
+
+
+
+std::stack
+#include<stack>
+
+STL adaptor container
+Can be implemented as Deque, Vector or Lists (that has back() functionality).
+By default implemented as Deque
+All Operations occur at one end(top)
+No iterators are supported nor STL algorithms
+
+push()
+pop()
+top()
+empty()
+size()
+
+std::stack<int> S                                           //Deque (by default)
+
+std::stack<int, std::vector<int>>  S1         // vector     
+std::stack<int, std::list<int>>  S1               // list
+std::stack<int, std::deque<int>>  S1         // deque
+
+
+
+
+
+
+
+
+std::queue
+
+#include<queue>
+STL adaptor container
+Can be implemented as Deque or Lists (that has back()  and front() functionality).
+By default implemented as Deque
+No iterators are supported nor STL algorithms
+
+
+push()      insert from back
+pop()        remove from front
+back()       display element at end
+front()      display element at front
+empty()
+size()
+
+
+
+std::queue<int> S                                           //Deque (by default)
+
+std::queue<int, std::list<int>>  S1               // list
+
+std::queue<int, std::deque<int>>  S1         // deque
